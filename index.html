@@ -45,10 +45,25 @@
       // Documnent Ready //
       $(document).ready(function() {
         // Display Current Date At Top of Calendar //
+        var currentDay = moment().format();
         // Get Local Storage for Text Input
+        function getLocalStorage(key) {
+          var value = localStorage.getItem(key);
+          if (value) {
+            $('#text${key}').text(value);
+          }
+        }
         // Write Function for Current Date //
-            // Create Row //
+        $("#currentDay").text(moment().format("ddd, MMMM Do YYYY"));
+        var currentHour = moment().hours()
+        // Loop for Each Day //
+        for (var i = 9; i < 18; i++) {
+          // Create Row //
+          var row = $(`<div data-time=${i} id='${i}' class="row time-block"></div>`); 
             // Create Column //
+          var col1 = $('<div class="col-sm-2 hour">' + i + 'am' + '<div>');
+        }
+            
             // Create Column #2 // 
             // Create Column #3 // 
             // Append Column to Row row.append(col#) //
