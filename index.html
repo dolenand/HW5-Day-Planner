@@ -59,13 +59,39 @@
         // Loop for Each Day //
         for (var i = 9; i < 18; i++) {
           // Create Row //
+          var row = $(`<div data-time=${i} id='${i}' class="row time-block"></div>`);
             // Create Column //
-            // Create Column #2 // 
+            var col1 = $('<div class="col-sm-2 hour">' + i + 'am' + '</div>');  
+
+          if (i > 12) {
+            var newDisplay = i - 12
+            newDisplay += 'pm'
+            col1.text(newDisplay)
+          }
+            // Create Column #2 //
+            var col2 = $(`<textarea id=text${i} class="description col-sm-8" placeholder="Add your event here..."></textarea>`);
+            if (i == currentHour) {
+              col2.addClass("present");
+            } else if (currentHour > i) {
+              col2.addClass("past");
+            } else if (currentHour < i) {
+              col2.addClass('future')
+            }
             // Create Column #3 // 
+            var col3 = $(`<button id=${i}  class="saveBtn col-sm-2 fas fa-save"></button>`) 
             // Append Column to Row row.append(col#) //
+            row.append(col1);
+            row.append(col2);
+            row.append(col3);
             // Add Rows to Container //
+            $(".container").append(row);
+
+            getLocalStorage(i);
+        }
             // Declare SaveBtn Variable & Write Function for Save Button  
-      });
+            
+    });
+});
       
       
       </script>
