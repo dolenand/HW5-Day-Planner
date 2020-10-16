@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--Link to CSS-->
+    <link rel="stylesheet" href="style.css" />
     <!--Link to JQuery Library and CloudFlare API-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -25,77 +27,19 @@
       href="https://fonts.googleapis.com/css?family=Inconsolata"
       rel="stylesheet"
     />
-    <!--Link to CSS-->
-    <link rel="stylesheet" href="style.css" />
-    
     <!--Title TOP-->
     <title>Work Day Scheduler</title>
   </head>
 
   <body>
     <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple functioning calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+        <h1 class="display-3">Work Day Scheduler</h1>
+        <p class="lead">A simple calendar app for scheduling your work day</p>
+        <p id="currentDay" class="lead"></p>
     </header>
-    
-    <div class="container">
-      <!-- Timeblocks go here -->
-      <script type="text/javascript">
-      // Documnent Ready //
-      $(document).ready(function() {
-        // Display Current Date At Top of Calendar //
-        var currentDay = moment().format();
-        // Get Local Storage for Text Input
-        function getLocalStorage(key) {
-          var value = localStorage.getItem(key);
-          if (value) {
-            $('#text${key}').text(value);
-          }
-        }
-        // Write Function for Current Date //
-        $("#currentDay").text(moment().format("ddd, MMMM Do YYYY"));
-        var currentHour = moment().hours()
-        // Loop for Each Day //
-        for (var i = 9; i < 18; i++) {
-          // Create Row //
-          var row = $(`<div data-time=${i} id='${i}' class="row time-block"></div>`);
-            // Create Column //
-            var col1 = $('<div class="col-sm-2 hour">' + i + 'am' + '</div>');  
-
-          if (i > 12) {
-            var newDisplay = i - 12
-            newDisplay += 'pm'
-            col1.text(newDisplay)
-          }
-            // Create Column #2 //
-            var col2 = $(`<textarea id=text${i} class="description col-sm-8" placeholder="Add your event here..."></textarea>`);
-            if (i == currentHour) {
-              col2.addClass("present");
-            } else if (currentHour > i) {
-              col2.addClass("past");
-            } else if (currentHour < i) {
-              col2.addClass('future')
-            }
-            // Create Column #3 // 
-            var col3 = $(`<button id=${i}  class="saveBtn col-sm-2 fas fa-save"></button>`) 
-            // Append Column to Row row.append(col#) //
-            row.append(col1);
-            row.append(col2);
-            row.append(col3);
-            // Add Rows to Container //
-            $(".container").append(row);
-
-            getLocalStorage(i);
-        }
-            // Declare SaveBtn Variable & Write Function for Save Button  
-            
-    });
-});
-      
-      
-      </script>
+    <div class="container"
+        <!--- Timeblocks go here -->
+      <script src="script.js"></script>
     </div>
-    
   </body>
-</html> 
+  </html> 

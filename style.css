@@ -1,5 +1,5 @@
 body {
-  font-family: 'Inconsolata';
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
 }
@@ -16,8 +16,8 @@ textarea{
 .jumbotron {
   text-align: center;
   background-color: transparent;
-  color: #06AED5;
-  border-radius: 2;
+  color: black;
+  border-radius: 0;
   border-bottom: 10px solid black;
 }
 
