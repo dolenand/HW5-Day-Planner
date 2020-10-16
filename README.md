@@ -31,7 +31,20 @@ WHEN I refresh the page
 
 THEN the saved events persist
 
+PSUEDOCODE:
+// Display Current Date At Top of Calendar //
+// Get Local Storage for Text Input
+// Write Function for Current Date //
+// Loop for Each Day //
+// Create Row //
+// Create Column //
+// Create Column #2 //
+// Create Column #3 // 
+// Append Column to Row row.append(col#) //
+// Add Rows to Container //
+// Declare SaveBtn Variable & Write Function for Save Button //
+// Buttons (save to Local Storage)//
 
+URL of Deployed Application: https://dolenand.github.io/HW5-Day-Planner/
 
-URL of Deployed Application:
-URL of Github Repo: 
+URL of Github Repo: https://github.com/dolenand/HW5-Day-Planner
